@@ -1,0 +1,24 @@
+relationship AutoDetected_06174abe-aba5-4979-8be6-cc32d67bb0de
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: C-UtilitiesBD.YearMonth
+	toColumn: C-MachinesMechanicalBD.YearMonth
+
+relationship AutoDetected_ac909449-b907-4e54-8cf5-8e50e1cf7e07
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: D-EndingInventory.YearMonth
+	toColumn: C-MachinesMechanicalBD.YearMonth
+
+relationship AutoDetected_52bd7fa2-7804-48c2-bf8c-05b8939b8d88
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: D-SKUsRaptures.YearMonth
+	toColumn: C-MachinesMechanicalBD.YearMonth
+
+relationship AutoDetected_74cbd932-6238-4156-a5fe-35c42551c844
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: PlusLTI.YearMonth
+	toColumn: C-MachinesMechanicalBD.YearMonth
+

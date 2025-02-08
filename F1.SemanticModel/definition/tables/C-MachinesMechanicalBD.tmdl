@@ -1,0 +1,79 @@
+table C-MachinesMechanicalBD
+	lineageTag: b4cf8f4d-cebf-45c9-b73d-7ed759cec57a
+
+	column YearID
+		dataType: int64
+		formatString: 0
+		lineageTag: dfe822b5-6fd7-4efa-8179-8e1c7d5e05d2
+		summarizeBy: count
+		sourceColumn: YearID
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthID
+		dataType: int64
+		formatString: 0
+		lineageTag: 6fef7ac3-67fc-4f31-a4f5-d9cf322473d9
+		summarizeBy: count
+		sourceColumn: MonthID
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonth
+		dataType: int64
+		formatString: 0
+		lineageTag: 0d30d3db-8c21-4305-ac3d-61041f4a2bdf
+		summarizeBy: none
+		sourceColumn: YearMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthName
+		dataType: string
+		lineageTag: ea12d27c-687d-4b94-834f-1c6a025dfe56
+		summarizeBy: none
+		sourceColumn: MonthName
+
+		annotation SummarizationSetBy = Automatic
+
+	column KPI
+		dataType: int64
+		formatString: 0
+		lineageTag: f083faf4-35f3-4335-b87c-e37f6f0fd21b
+		summarizeBy: sum
+		sourceColumn: KPI
+
+		annotation SummarizationSetBy = Automatic
+
+	column Actual
+		dataType: int64
+		formatString: 0
+		lineageTag: 57e82e30-8ebe-4c29-8ad1-6d151a0165ed
+		summarizeBy: sum
+		sourceColumn: Actual
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ratio
+		dataType: double
+		lineageTag: e6ee98a0-9fcd-441b-bcc5-60502580e727
+		summarizeBy: sum
+		sourceColumn: Ratio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition C-MachinesMechanicalBD = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\ehabnady\Desktop\TechnicalOperatinsDashboard\DataFromGeorge\TO Template For Upload - v2 Filled Needs Review.xlsx"), null, true),
+				    #"C-MachinesMechanicalBD_Sheet" = Source{[Item="C-MachinesMechanicalBD",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"C-MachinesMechanicalBD_Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"YearID", Int64.Type}, {"MonthID", Int64.Type}, {"YearMonth", Int64.Type}, {"MonthName", type text}, {"KPI", Int64.Type}, {"Actual", Int64.Type}, {"Ratio", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
