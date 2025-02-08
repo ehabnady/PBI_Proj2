@@ -87,6 +87,15 @@
           "z": 1.00
         },
         {
+          "config": "{\"name\":\"8551c29c56d45e120ae5\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":2,\"width\":300.1129943502825,\"height\":300.1129943502825,\"tabOrder\":2}}],\"singleVisual\":{\"visualType\":\"pieChart\",\"projections\":{\"Category\":[{\"queryRef\":\"C-UtilitiesBD.MonthName\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(C-UtilitiesBD.Actual)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"C-UtilitiesBD\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"MonthName\"},\"Name\":\"C-UtilitiesBD.MonthName\",\"NativeReferenceName\":\"MonthName\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Actual\"}},\"Function\":0},\"Name\":\"Sum(C-UtilitiesBD.Actual)\",\"NativeReferenceName\":\"Sum of Actual\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Actual\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 300.11,
+          "width": 300.11,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 2.00
+        },
+        {
           "config": "{\"name\":\"bc7a9a309994a9b831cd\",\"layouts\":[{\"id\":0,\"position\":{\"x\":545.9887005649717,\"y\":59.66101694915255,\"z\":0,\"width\":300.1129943502825,\"height\":300.1129943502825}}],\"singleVisual\":{\"visualType\":\"multiRowCard\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(C-UtilitiesBD.Actual)\"},{\"queryRef\":\"Sum(C-UtilitiesBD.Ratio)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"C-UtilitiesBD\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Actual\"}},\"Function\":0},\"Name\":\"Sum(C-UtilitiesBD.Actual)\",\"NativeReferenceName\":\"Sum of Actual\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Ratio\"}},\"Function\":0},\"Name\":\"Sum(C-UtilitiesBD.Ratio)\",\"NativeReferenceName\":\"Sum of Ratio\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Actual\"}},\"Function\":0}}}]},\"autoSelectVisualType\":true,\"drillFilterOtherVisuals\":true}}",
           "filters": "[]",
           "height": 300.11,
