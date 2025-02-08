@@ -1,0 +1,87 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 296.54204816069074,
+            "y": 289.62082144489119
+          },
+          "nodeIndex": "C-MachinesMechanicalBD",
+          "nodeLineageTag": "b4cf8f4d-cebf-45c9-b73d-7ed759cec57a",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 10,
+            "y": 289.54408527230663
+          },
+          "nodeIndex": "C-UtilitiesBD",
+          "nodeLineageTag": "7eaa69a6-3082-47e0-bc1f-3eb13a86c1bb",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 295.80699388916889,
+            "y": 666.12757561906415
+          },
+          "nodeIndex": "D-EndingInventory",
+          "nodeLineageTag": "23a7daa4-1a26-4336-944b-149fcf20a4da",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 352.13742663636339,
+            "y": -10
+          },
+          "nodeIndex": "D-SKUsRaptures",
+          "nodeLineageTag": "995586d0-a6a7-43c5-ab05-2d11db06e143",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 582.47471593006253,
+            "y": 491.14624309326814
+          },
+          "nodeIndex": "PlusLTI",
+          "nodeLineageTag": "39ae187d-8d3d-416e-80da-f73835fe34fd",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

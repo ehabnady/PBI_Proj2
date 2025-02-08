@@ -1,0 +1,80 @@
+table C-UtilitiesBD
+	lineageTag: 7eaa69a6-3082-47e0-bc1f-3eb13a86c1bb
+
+	column YearID
+		dataType: int64
+		formatString: 0
+		lineageTag: e532f5b4-3cf0-4cb5-b41d-172d4db39eb0
+		summarizeBy: count
+		sourceColumn: YearID
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthID
+		dataType: int64
+		formatString: 0
+		lineageTag: 800474a4-7fc1-4ab0-8bc4-c402aeb67d95
+		summarizeBy: count
+		sourceColumn: MonthID
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonth
+		dataType: int64
+		formatString: 0
+		lineageTag: dc39f79d-c530-4387-b461-6682d467790f
+		summarizeBy: none
+		sourceColumn: YearMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthName
+		dataType: string
+		lineageTag: a9bfc0a1-d0ba-4a18-8c82-2c157a3227ca
+		summarizeBy: none
+		sourceColumn: MonthName
+
+		annotation SummarizationSetBy = Automatic
+
+	column KPI
+		dataType: int64
+		formatString: 0
+		lineageTag: 9bcbd7b1-d9a9-4d3a-9706-920cfae1d6dd
+		summarizeBy: sum
+		sourceColumn: KPI
+
+		annotation SummarizationSetBy = Automatic
+
+	column Actual
+		dataType: double
+		lineageTag: 5dea643f-e361-41ee-85f2-89b6973c9f9e
+		summarizeBy: sum
+		sourceColumn: Actual
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Ratio
+		dataType: double
+		lineageTag: fbd8e0bd-29f8-4b74-8dfb-d322d023d7a0
+		summarizeBy: sum
+		sourceColumn: Ratio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition C-UtilitiesBD = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\ehabnady\Desktop\TechnicalOperatinsDashboard\DataFromGeorge\TO Template For Upload - v2 Filled Needs Review.xlsx"), null, true),
+				    #"C-UtilitiesBD_Sheet" = Source{[Item="C-UtilitiesBD",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"C-UtilitiesBD_Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"YearID", Int64.Type}, {"MonthID", Int64.Type}, {"YearMonth", Int64.Type}, {"MonthName", type text}, {"KPI", Int64.Type}, {"Actual", type number}, {"Ratio", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

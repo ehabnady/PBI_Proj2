@@ -1,0 +1,24 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["C-MachinesMechanicalBD","C-UtilitiesBD","D-EndingInventory","D-SKUsRaptures","PlusLTI"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.139.2054.0 (24.12)+334ca1c95b576cc53924655643b0d36f21caac55
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table C-MachinesMechanicalBD
+ref table C-UtilitiesBD
+ref table D-EndingInventory
+ref table D-SKUsRaptures
+ref table PlusLTI
+
+ref cultureInfo en-US
+

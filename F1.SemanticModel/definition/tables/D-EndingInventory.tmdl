@@ -1,0 +1,90 @@
+table D-EndingInventory
+	lineageTag: 23a7daa4-1a26-4336-944b-149fcf20a4da
+
+	column YearID
+		dataType: int64
+		formatString: 0
+		lineageTag: 1c4f44ef-f71c-479a-8a56-5ec7839ed476
+		summarizeBy: count
+		sourceColumn: YearID
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthID
+		dataType: int64
+		formatString: 0
+		lineageTag: d442a22d-4f87-4d54-9cdf-379142aa65c7
+		summarizeBy: count
+		sourceColumn: MonthID
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonth
+		dataType: int64
+		formatString: 0
+		lineageTag: 4337f010-36ee-4035-9318-bc39a065ec81
+		summarizeBy: none
+		sourceColumn: YearMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthName
+		dataType: string
+		lineageTag: 2759dfa9-6b09-491b-b6c8-522458d7bc65
+		summarizeBy: none
+		sourceColumn: MonthName
+
+		annotation SummarizationSetBy = Automatic
+
+	column KPI
+		dataType: double
+		lineageTag: 5bff569a-d078-4077-bf6f-322d56481a04
+		summarizeBy: sum
+		sourceColumn: KPI
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Actual
+		dataType: double
+		lineageTag: af1be49b-6480-465b-b904-016002166eb2
+		summarizeBy: sum
+		sourceColumn: Actual
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Ratio
+		dataType: double
+		lineageTag: 207613e1-046b-4d13-9cae-4918b53ac18a
+		summarizeBy: sum
+		sourceColumn: Ratio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Column1
+		dataType: int64
+		formatString: 0
+		lineageTag: d6953f67-0e69-4d37-9c87-b4515ef93964
+		summarizeBy: sum
+		sourceColumn: Column1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition D-EndingInventory = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\ehabnady\Desktop\TechnicalOperatinsDashboard\DataFromGeorge\TO Template For Upload - v2 Filled Needs Review.xlsx"), null, true),
+				    #"D-EndingInventory_Sheet" = Source{[Item="D-EndingInventory",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"D-EndingInventory_Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"YearID", Int64.Type}, {"MonthID", Int64.Type}, {"YearMonth", Int64.Type}, {"MonthName", type text}, {"KPI", type number}, {"Actual", type number}, {"Ratio", type number}, {"Column1", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
