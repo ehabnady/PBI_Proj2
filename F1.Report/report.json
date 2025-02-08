@@ -1,0 +1,102 @@
+{
+  "config": "{\"version\":\"5.59\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"version\":\"5.61\",\"type\":2}},\"activeSectionIndex\":2,\"defaultDrillFilterOtherVisuals\":true,\"slowDataSourceSettings\":{\"isCrossHighlightingDisabled\":false,\"isSlicerSelectionsButtonEnabled\":false,\"isFilterSelectionsButtonEnabled\":false,\"isFieldWellButtonEnabled\":false,\"isApplyAllButtonEnabled\":false},\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU10",
+            "path": "BaseThemes/CY24SU10.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "New Name",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "19225739307d2b1e328c",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"9f3bbff4988e217118dd\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":0,\"width\":278.41807909604523,\"height\":280.225988700565,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"multiRowCard\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(C-MachinesMechanicalBD.KPI)\"},{\"queryRef\":\"Sum(C-MachinesMechanicalBD.Actual)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"C-MachinesMechanicalBD\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"KPI\"}},\"Function\":0},\"Name\":\"Sum(C-MachinesMechanicalBD.KPI)\",\"NativeReferenceName\":\"Sum of KPI\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Actual\"}},\"Function\":0},\"Name\":\"Sum(C-MachinesMechanicalBD.Actual)\",\"NativeReferenceName\":\"Sum of Actual\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"KPI\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 280.23,
+          "width": 278.42,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"cde7ddeb3899da57e9cc\",\"layouts\":[{\"id\":0,\"position\":{\"x\":278.41807909604523,\"y\":0,\"z\":1000,\"width\":1001.5819209039548,\"height\":719.54802259887,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"pieChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(PlusLTI.KPI)\"}],\"Category\":[{\"queryRef\":\"PlusLTI.MonthName\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"PlusLTI\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"KPI\"}},\"Function\":0},\"Name\":\"Sum(PlusLTI.KPI)\",\"NativeReferenceName\":\"Sum of KPI\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"MonthName\"},\"Name\":\"PlusLTI.MonthName\",\"NativeReferenceName\":\"Count of MonthName\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"KPI\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 719.55,
+          "width": 1001.58,
+          "x": 278.42,
+          "y": 0.00,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Page 2",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "1ca4206290b73805b059",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"f77503e4e300a54bbe90\",\"layouts\":[{\"id\":0,\"position\":{\"x\":10.847457627118645,\"y\":0,\"z\":0,\"width\":466.4406779661017,\"height\":359.774011299435,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"CountNonNull(D-SKUsRaptures.MonthID)\"},{\"queryRef\":\"Sum(D-SKUsRaptures.Ratio)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"D-SKUsRaptures\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"MonthID\"},\"Name\":\"CountNonNull(D-SKUsRaptures.MonthID)\",\"NativeReferenceName\":\"MonthID\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Ratio\"}},\"Function\":0},\"Name\":\"Sum(D-SKUsRaptures.Ratio)\",\"NativeReferenceName\":\"Sum of Ratio\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 359.77,
+          "width": 466.44,
+          "x": 10.85,
+          "y": 0.00,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "New Page",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "aee95f9f10489aec1169",
+      "ordinal": 2,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"6b0b01b8000cd1006c08\",\"layouts\":[{\"id\":0,\"position\":{\"x\":150.05649717514126,\"y\":419.43502824858757,\"z\":1,\"width\":1028.7005649717514,\"height\":300.1129943502825,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"C-UtilitiesBD.YearMonth\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(C-UtilitiesBD.Actual)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"C-UtilitiesBD\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"YearMonth\"},\"Name\":\"C-UtilitiesBD.YearMonth\",\"NativeReferenceName\":\"YearMonth\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Actual\"}},\"Function\":0},\"Name\":\"Sum(C-UtilitiesBD.Actual)\",\"NativeReferenceName\":\"Sum of Actual\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Actual\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 300.11,
+          "width": 1028.70,
+          "x": 150.06,
+          "y": 419.44,
+          "z": 1.00
+        },
+        {
+          "config": "{\"name\":\"bc7a9a309994a9b831cd\",\"layouts\":[{\"id\":0,\"position\":{\"x\":545.9887005649717,\"y\":59.66101694915255,\"z\":0,\"width\":300.1129943502825,\"height\":300.1129943502825}}],\"singleVisual\":{\"visualType\":\"multiRowCard\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(C-UtilitiesBD.Actual)\"},{\"queryRef\":\"Sum(C-UtilitiesBD.Ratio)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"C-UtilitiesBD\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Actual\"}},\"Function\":0},\"Name\":\"Sum(C-UtilitiesBD.Actual)\",\"NativeReferenceName\":\"Sum of Actual\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Ratio\"}},\"Function\":0},\"Name\":\"Sum(C-UtilitiesBD.Ratio)\",\"NativeReferenceName\":\"Sum of Ratio\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Actual\"}},\"Function\":0}}}]},\"autoSelectVisualType\":true,\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 300.11,
+          "width": 300.11,
+          "x": 545.99,
+          "y": 59.66,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

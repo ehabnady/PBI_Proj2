@@ -1,0 +1,80 @@
+table PlusLTI
+	lineageTag: 39ae187d-8d3d-416e-80da-f73835fe34fd
+
+	column YearID
+		dataType: int64
+		formatString: 0
+		lineageTag: bb1ff791-b124-46fe-95a6-e14df5b41a0e
+		summarizeBy: count
+		sourceColumn: YearID
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthID
+		dataType: int64
+		formatString: 0
+		lineageTag: b704dd6f-9edf-4797-bd53-718c1c8b5e54
+		summarizeBy: count
+		sourceColumn: MonthID
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonth
+		dataType: int64
+		formatString: 0
+		lineageTag: 1ee4a983-93c0-465d-baaf-ce6ccac6946d
+		summarizeBy: none
+		sourceColumn: YearMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthName
+		dataType: string
+		lineageTag: e73c787e-4ee5-454a-ba09-41abd6d42ec0
+		summarizeBy: none
+		sourceColumn: MonthName
+
+		annotation SummarizationSetBy = Automatic
+
+	column KPI
+		dataType: double
+		lineageTag: 145ffaf8-7020-464e-a39c-8c584d731945
+		summarizeBy: sum
+		sourceColumn: KPI
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Actual
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d51ca08-51fc-4376-b0f1-c4903eee6684
+		summarizeBy: sum
+		sourceColumn: Actual
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ratio
+		dataType: double
+		lineageTag: 54c83e40-f500-4e6b-9a90-23fdb3e4a9d1
+		summarizeBy: sum
+		sourceColumn: Ratio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition PlusLTI = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\ehabnady\Desktop\TechnicalOperatinsDashboard\DataFromGeorge\TO Template For Upload - v2 Filled Needs Review.xlsx"), null, true),
+				    PlusLTI_Sheet = Source{[Item="PlusLTI",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(PlusLTI_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"YearID", Int64.Type}, {"MonthID", Int64.Type}, {"YearMonth", Int64.Type}, {"MonthName", type text}, {"KPI", type number}, {"Actual", Int64.Type}, {"Ratio", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

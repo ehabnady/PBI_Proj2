@@ -1,0 +1,81 @@
+table D-SKUsRaptures
+	lineageTag: 995586d0-a6a7-43c5-ab05-2d11db06e143
+
+	column YearID
+		dataType: int64
+		formatString: 0
+		lineageTag: fbea5b04-09c2-4959-8680-e32edc0b3740
+		summarizeBy: count
+		sourceColumn: YearID
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthID
+		dataType: int64
+		formatString: 0
+		lineageTag: efe5efd5-a702-42bd-93ce-2b7bcb76a7d7
+		summarizeBy: count
+		sourceColumn: MonthID
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonth
+		dataType: int64
+		formatString: 0
+		lineageTag: 799f3fe4-8a35-462e-841f-60015c25f1ca
+		summarizeBy: none
+		sourceColumn: YearMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthName
+		dataType: string
+		lineageTag: 17fa42b0-a4f1-4054-af16-45e4aaa2b43d
+		summarizeBy: none
+		sourceColumn: MonthName
+
+		annotation SummarizationSetBy = Automatic
+
+	column KPI
+		dataType: double
+		lineageTag: 67310fab-60e3-4587-bfd0-ce55e92c254d
+		summarizeBy: sum
+		sourceColumn: KPI
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Actual
+		dataType: double
+		lineageTag: 22368959-8333-4d3e-bfbc-0ad849286abf
+		summarizeBy: sum
+		sourceColumn: Actual
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Ratio
+		dataType: double
+		lineageTag: 4c673d27-e0f2-4189-bd69-62f03cba3a0b
+		summarizeBy: sum
+		sourceColumn: Ratio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition D-SKUsRaptures = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\ehabnady\Desktop\TechnicalOperatinsDashboard\DataFromGeorge\TO Template For Upload - v2 Filled Needs Review.xlsx"), null, true),
+				    #"D-SKUsRaptures_Sheet" = Source{[Item="D-SKUsRaptures",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"D-SKUsRaptures_Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"YearID", Int64.Type}, {"MonthID", Int64.Type}, {"YearMonth", Int64.Type}, {"MonthName", type text}, {"KPI", type number}, {"Actual", type number}, {"Ratio", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
